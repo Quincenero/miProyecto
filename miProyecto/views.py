@@ -8,3 +8,18 @@ def bienvenida(request):
 
 def bienvenidaRojo(request):
     return HttpResponse("<p style='color:red;'>Bienvenido a este curso de Django</p>")
+
+def categoriaEdad(request,edad):
+    if edad >= 18:
+        if edad >= 60:
+            categoria = "Tercera edad"
+        else:
+            categoria = "Adultez"
+    else:
+        if edad < 10:
+            categoria = "Infancia"
+        else:
+            categoria = "Adolescencia"
+    resultado = "<h1>Categoria de la edad: %s</h1>" %categoria
+    return HttpResponse(resultado)
+        
